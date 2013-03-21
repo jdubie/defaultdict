@@ -7,7 +7,16 @@
  * Expose `DefaultDict`.
  */
 
-exports = module.exports = function DefaultDict(defaultValue) {
+exports = module.exports = DefaultDict;
+
+/**
+ * Setup defaults with a `defaultValue`
+ *
+ * @param {*} defaultValue
+ * @api public
+ */
+
+function DefaultDict(defaultValue) {
   this.defaultValue = defaultValue;
   this._ = {};
 }

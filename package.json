@@ -1,0 +1,8 @@
+{
+  "name": "defaultdict",
+  "version": "0.0.1",
+  "devDependencies": {
+    "should": "~1.2.2",
+    "mocha": "~1.8.2"
+  }
+}
