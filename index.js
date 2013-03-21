@@ -12,7 +12,10 @@ exports = module.exports = DefaultDict;
 /**
  * Setup defaults with a `defaultValue`
  *
- * @param {*} defaultValue
+ * @example
+ *   var dict = new DefaultDict(function() { return []; });
+ * 
+ * @param {function} defaultValue
  * @api public
  */
 
@@ -44,5 +47,8 @@ DefaultDict.prototype.set = function(key, value) {
 DefaultDict.prototype.get = function(key, value) {
   var result = this._[key];
   if (result) return result;
-  return this.defaultValue;
+
+  // set this value and recurse
+  this.set(key, this.defaultValue());
+  return this.get(key);
 }
