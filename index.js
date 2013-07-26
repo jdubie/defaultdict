@@ -3,6 +3,8 @@
  * Jack Dubie
  */
 
+var _ = require('underscore');
+
 /**
  * Expose `DefaultDict`.
  */
@@ -20,7 +22,9 @@ exports = module.exports = DefaultDict;
  */
 
 function DefaultDict(defaultValue) {
-  this.defaultValue = defaultValue;
+  this.defaultValue = function () {
+    return _.clone(defaultValue);
+  }
   this._ = {};
 }
 
@@ -46,7 +50,7 @@ DefaultDict.prototype.set = function(key, value) {
 
 DefaultDict.prototype.get = function(key, value) {
   var result = this._[key];
-  if (result) return result;
+  if (typeof result !== 'undefined') return result;
 
   // set this value and recurse
   this.set(key, this.defaultValue());

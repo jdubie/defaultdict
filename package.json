@@ -4,5 +4,8 @@
   "devDependencies": {
     "should": "~1.2.2",
     "mocha": "~1.8.2"
+  },
+  "dependencies": {
+    "underscore": "~1.5.1"
   }
 }
